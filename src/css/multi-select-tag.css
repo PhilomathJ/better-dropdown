@@ -1,151 +1,563 @@
-.mult-select-tag {
-    display: flex;
-    width:100%;
-    flex-direction: column;
-    align-items: center;
+/* Colors taken from brand sheet:
+  * https://docs.google.com/presentation/d/1XjqH9F89RW1Atpbp6AdrUCcJm2q774hAHz6MxuBupzE/edit?* resourcekey=0-QcBYmZipkqxJhYPoCo0HBw#slide=id.g1b9a7aada91_1_0
+  */
+:root {
+    --header-color: #174ea6;
+    --header-height: 11em;
+    --header-padding: 1.25em;
+    --nav-color: #1e8e3e;
+    --nav-height: 2em;
+    --nav-li-margin: 0.5em;
+    --main-background-color: #eff1f2;
+    --section-header-color: #1a73e8;
+    --section-header-height: 7em;
+    --section-header-margin-bottom: 1em;
+    --section-subheader-background-color: #aecbfa;
+    --section-margin-bottom: 2em;
+    --closing-message-background-color: #f9ab00;
+    --section-border-radius: 15px;
+    --control-border-radius: 7px;
+    --control-title-text-color: #174ea6;
+    --deemphasized-text-color: #bdc1c6;
+    --control-border-color: #3c4043;
+}
+
+header {
+    background-color: var(--header-color);
+    color: white;
+    height: var(--header-height);
+    margin: 0;
+    padding: var(--header-padding);
     position: relative;
-    --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    --tw-shadow-color: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-    --border-color: rgb(218, 221, 224);
-    font-family: Verdana, sans-serif;
+
+    & h1 {
+        font-size: 4em;
+    }
+
+    & h2 {
+        font-size: medium;
+        margin: 0;
+    }
+
+    & a {
+        color: white;
+    }
+
+    & a:hover {
+        color: #e37400;
+    }
+
+    .header-left {
+        display: inline-block;
+        max-width: 60%;
+        /* background-color: darkblue; */
+    }
+    .header-right {
+        position: relative;
+        height: 100%;
+        float: right;
+        width: 40%;
+        /* background-color: lightblue; */
+    }
+
+    .attribution {
+        position: relative;
+        /* background-color: teal; */
+        display: block;
+        width: 100%;
+        height: 3.5em;
+        line-height: 3.5em;
+        font-size: large;
+        text-align: right;
+        margin: 0;
+
+        & p {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: right;
+            margin: 0;
+        }
+
+        & img {
+            display: block;
+            height: 100%;
+            float: right;
+            padding-left: 1em;
+        }
+    }
+
+    .version-info {
+        position: absolute;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        color: white;
+        text-align: right;
+        font-size: medium;
+
+        & p {
+            margin: 0;
+        }
+    }
+
+    .current-app-version {
+        font-size: larger;
+    }
+
+    .current-build-version {
+        margin: 0;
+        color: grey;
+    }
 }
 
-.mult-select-tag .wrapper {
-    width: 100%;
-}
-
-.mult-select-tag .body {
-    display: flex;
-    border: 1px solid var(--border-color);
-    background: white;
-    min-height: 2.15rem;
-    width:100%;
-    min-width: 14rem;
-
-}
-
-.mult-select-tag .input-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex: 1 1 auto;
-    padding: 0.1rem;
-    align-items: center;
-}
-
-.mult-select-tag .input-body {
-    display: flex;
-    width: 100%;
-}
-
-.mult-select-tag .input {
-    flex:1;
-    background: transparent;
-    border-radius: 0.25rem;
-    padding: 0.45rem;
-    margin: 10px;
-    color: #2d3748;
-    outline: 0;
-    border: 1px solid var(--border-color);
-}
-
-.mult-select-tag .btn-container {
-    color: #e2eBf0;
-    padding: 0.5rem;
-    display: flex;
-    border-left: 1px solid var(--border-color);
-}
-
-.mult-select-tag button {
-    cursor: pointer;
-    width: 100%;
-    color: #718096;
-    outline: 0;
-    height: 100%;
-    border: none;
-    padding: 0;
-    background: transparent;
-    background-image: none;
-    -webkit-appearance: none;
-    text-transform: none;
+nav {
+    height: var(--nav-height);
+    line-height: var(--nav-height);
+    background-color: var(--nav-color);
     margin: 0;
+
+    /** Need to remove browser-added default margin and padding from ul */
+    & ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    & ul li {
+        position: relative;
+    }
+
+    & li a {
+        padding-left: 5px;
+        margin-left: 12px;
+        color: white;
+        font-size: large;
+    }
+
+    .bug::before {
+        background-image: url('https://services.google.com/fh/files/newsletters/bug-white-transparent.png');
+    }
+
+    .doc::before {
+        background-image: url('https://services.google.com/fh/files/newsletters/doc-white-transparent.png');
+    }
+
+    .aodocs::before {
+        background-image: url('https://services.google.com/fh/files/newsletters/aodocs-white-transparent.png');
+    }
+
+    .feedback::before {
+        background-image: url('https://services.google.com/fh/files/newsletters/feedback-white-transparent.png');
+    }
+
+    .history::before {
+        background-image: url('https://services.google.com/fh/files/newsletters/history-white-transparent.png');
+    }
 }
 
-.mult-select-tag button:first-child {
-    width: 1rem;
-    height: 90%;
-}
-
-
-.mult-select-tag .drawer {
+.link-decorator::before {
+    background-size: 0.75em 0.75em;
+    display: inline-block;
+    width: 0.75em;
+    height: 0.75em;
     position: absolute;
-    background: white;
-    max-height: 15rem;
-    z-index: 40;
-    top: 98%;
-    width: 100%;
-    overflow-y: scroll;
-    border: 1px solid var(--border-color);
-    border-radius: 0.25rem;
+    left: 10px;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    content: '';
 }
 
-.mult-select-tag ul {
-    list-style-type: none;
-    padding: 0.5rem;
+.list-inline {
+    list-style: none;
     margin: 0;
+    padding: 0;
+    background-color: purple;
+
+    & > li {
+        display: inline;
+        float: right;
+        /* margin-right: var(--nav-li-margin); */
+    }
 }
 
-.mult-select-tag ul li {
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    cursor: pointer;
+/**
+* @bugfix Prevent webkit from removing list semantics
+* https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+* 1. Add a non-breaking space
+* 2. Make sure it doesn't mess up the DOM flow
+*/
+.list-inline > li:before {
+    content: '\200B';
+    margin-right: 0.5em;
 }
 
-.mult-select-tag ul li:hover {
-    background: rgb(243 244 246);
+main {
+    background-color: var(--main-background-color);
+    margin-top: 0;
+    padding: 2em;
+    padding-top: 0;
 }
 
-.mult-select-tag .item-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.2rem 0.4rem;
-    margin: 0.2rem;
-    font-weight: 500;
-    border: 1px solid;
-    border-radius: 9999px;
+.intro {
+    font-size: large;
+    color: var(--header-color);
+    max-width: 80%;
+    margin: 0;
+    padding: var(--header-padding) 0;
 }
 
-.mult-select-tag .item-label {
-    max-width: 100%;
-    line-height: 1;
-    font-size: 0.75rem;
-    font-weight: 400;
-    flex: 0 1 auto;
+section.inline-flow {
+    margin-bottom: var(--section-margin-bottom);
 }
 
-.mult-select-tag .item-close-container {
-    display: flex;
-    flex: 1 1 auto;
-    flex-direction: row-reverse;
+.section-header {
+    background-color: var(--section-header-color);
+    color: white;
+    height: var(--section-header-height);
+    border-radius: var(--section-border-radius);
+    margin-bottom: var(--section-header-margin-bottom);
+
+    & h2 {
+        font-size: xx-large;
+        margin-bottom: 0;
+    }
+
+    & span {
+        font-size: large;
+    }
 }
 
-.mult-select-tag .item-close-svg {
-    width: 1rem;
-    margin-left: 0.5rem;
-    height: 1rem;
-    cursor: pointer;
-    border-radius: 9999px;
-    display: block;
+.section-subheading {
+    background-color: var(--section-subheader-background-color);
+    border-radius: var(--section-border-radius);
+    padding: 1em;
+    margin-bottom: var(--section-header-margin-bottom);
+
+    & h2 {
+        font-size: x-large;
+    }
+
+    & input[type='radio'] {
+        margin: 0;
+        height: 1.2em;
+        width: 1.2em;
+        vertical-align: baseline;
+    }
+    & input[type='radio'] + label {
+        margin: 0;
+        font-size: large;
+    }
 }
 
-.hidden {
+.section-fields {
+    background-color: white;
+    border-radius: var(--section-border-radius);
+    padding: 1em;
+
+    & h2 {
+        font-size: large;
+    }
+}
+
+.required::after {
+    content: '*';
+    color: red;
+}
+
+h2.migration-type {
+    display: inline;
+}
+
+span.migration-type {
+    color: red;
+    font-weight: bold;
+    font-size: 1.25em;
+    margin-left: 1em;
+}
+
+span.migration-type.hidden {
     display: none;
 }
 
-.mult-select-tag .shadow  {
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+.initiation {
+    /* Force the gPOR/Product migration type row to be hidden, but still exist */
+    & dckm-form-row:nth-child(2) {
+        display: block;
+        line-height: 0;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+    }
+    input:not([type='radio']) {
+        width: 60%;
+    }
+
+    & dckm-input div {
+        position: relative;
+    }
+    & dckm-radio-category div {
+        position: relative;
+    }
+
+    .request-name::after {
+        content: 'The name of the migration request.\00000aThis will be displayed in the Request History';
+    }
+
+    .dc-info-folder-url::after {
+        content: 'This is the folder URL for where your files should be migrated to in DC Info';
+    }
+
+    .source-import-folder-url::after {
+        content: 'This is the Drive URL for your source files.\00000aAdditional files can be added later';
+    }
+
+    .existing-documents::after {
+        content: 'Documents already established in DC Info will be considered document updates.\00000aIf these are updates, please have the DC Info UID ready for the next page of this request';
+    }
+
+    .info-icon > img {
+        width: 0.9em;
+        height: 0.9em;
+        margin-left: 0.5em;
+    }
+
+    .info-icon::after {
+        /* content: 'abc'; */
+        display: block;
+        position: absolute;
+        background-color: #3c4043;
+        padding: 1em 1.5em;
+        color: white;
+        border-radius: 7px;
+        font-size: 1em;
+        font-weight: normal;
+        bottom: 0;
+        left: 150px;
+        max-width: 30em;
+        white-space: pre-line;
+        transform: scale(0);
+        transition: transform ease-out 150ms, bottom ease-out 150ms;
+    }
+
+    .info-icon:hover::after {
+        transform: scale(1);
+        bottom: 100%;
+    }
 }
 
-.mult-select-tag .rounded {
-    border-radius: .375rem;
+/* Replace No label text for updates question with more descriptiove ones */
+/* .initiation label[for=No] {
+    visibility: hidden;
+    position: relative;
+  }
+
+.initiation label[for=No]:after {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: left;
+    content: "New documents";
+  } */
+
+/* Replace Yes label text for updates question with more descriptiove ones */
+/* .initiation label[for=Yes] {
+    visibility: hidden;
+    position: relative;
+  }
+
+  .initiation label[for=Yes]:after {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: left;
+    content: "Updates to existing documents";
+  } */
+
+.field-container {
+    display: inline-block;
+    margin-bottom: 1em;
+
+    & input {
+        margin-bottom: 1em;
+    }
+
+    & label {
+        font-size: medium;
+        color: var(--control-title-text-color);
+    }
+
+    & select,
+    input:not([type='radio']) {
+        font-size: medium;
+        border-radius: var(--control-border-radius);
+        border: 1px solid var(--control-border-color);
+    }
+}
+
+.field-container.migrating {
+    max-width: 40%;
+    margin-right: 1em;
+}
+
+#gpor-version {
+    width: 22rem;
+    max-width: 33%;
+}
+
+#region-country {
+    width: 35rem;
+    max-width: 33%;
+}
+
+#product {
+    width: 50rem;
+    max-width: 33%;
+}
+
+#system-subsystem {
+    width: 35rem;
+    max-width: 33%;
+}
+
+#technical-area {
+    width: 20rem;
+    max-width: 33%;
+}
+
+#security-level {
+    width: 40rem;
+    max-width: 33%;
+}
+
+#doc-type-gpor-div {
+    width: 35rem;
+    max-width: 33%;
+}
+
+#doc-type-product-div {
+    width: 35rem;
+    max-width: 33%;
+}
+
+.access-level {
+    width: 30%;
+    margin-right: 3em;
+}
+
+.approver {
+    display: block;
+    width: 50%;
+}
+
+.field-row {
+    display: block;
+}
+::placeholder {
+    color: var(--deemphasized-text-color);
+    padding-left: 0.75rem;
+}
+
+.closing-message {
+    position: relative;
+    height: 5em;
+    line-height: 5em;
+    text-align: left;
+    background-color: var(--closing-message-background-color);
+    color: var(--header-color);
+    border-radius: var(--section-border-radius);
+    margin-top: 1em;
+    padding-left: 1em;
+    font-size: xx-large;
+
+    & img {
+        position: absolute;
+        width: 15%;
+        top: 50%;
+        right: 1em;
+        transform: translateY(-50%);
+    }
+}
+
+footer {
+    background-color: var(--main-background-color);
+    color: var(--section-header-color);
+    padding: 0 1em 1em;
+    text-align: center;
+    padding-bottom: 2em;
+
+    & ul li {
+        position: relative;
+    }
+
+    & li a {
+        padding-left: 5px;
+        margin-left: 12px;
+    }
+
+    .footer-links {
+        display: block;
+    }
+
+    .footer-links a {
+        color: var(--section-header-color);
+        font-size: large;
+    }
+
+    .dckm-solutions-attribution {
+        display: block;
+        clear: right;
+    }
+
+    .dckm-solutions-attribution a {
+        color: black;
+    }
+
+    .bug::before {
+        background-image: url('https://services.google.com/fh/files/newsletters/bug-blue-transparent.png');
+    }
+
+    .doc::before {
+        background-image: url('https://services.google.com/fh/files/newsletters/doc-blue-transparent.png');
+    }
+
+    .aodocs::before {
+        background-image: url('https://services.google.com/fh/files/newsletters/aodocs-color-transparent.png');
+    }
+
+    .globe::before {
+        background-image: url('https://services.google.com/fh/files/newsletters/globe-blue-transparent.png');
+    }
+
+    .feedback::before {
+        background-image: url('https://services.google.com/fh/files/newsletters/feedback-blue-transparent.png');
+    }
+
+    .history::before {
+        background-image: url('https://services.google.com/fh/files/newsletters/history-blue-transparent.png');
+    }
+}
+
+#createRequest {
+    background-color: var(--nav-color);
+    border-radius: var(--control-border-radius);
+    color: white;
+    font-size: 1.25em;
+    font-weight: 550;
+    height: 2.5em;
+    max-width: 15%;
+    min-width: 20em;
+    text-align: center;
+    border: none;
+}
+
+.doc-type.gpors {
+    display: none;
+}
+
+.doc-type.products {
+    display: none;
 }
