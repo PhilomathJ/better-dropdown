@@ -1,0 +1,35 @@
+header {
+    background-color: thistle;
+    color: darkpurple;
+    font-family: 'Fira Code', monospace;
+    padding: 15px;
+    text-align: left;
+}
+
+footer {
+    background-color: purple;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.single {
+    background-color: lightgray;
+    color: black;
+    padding: 15px;
+    text-align: left;
+    position: relative;
+}
+
+.multi {
+    background-color:aliceblue;
+    color: black;
+    padding: 15px;
+    text-align: left;
+    position: relative;
+}
+
+select {
+    display: inline-block;
+    min-width: 20%;
+}

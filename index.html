@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-select Project</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="src/css/multi-select-tag.css">
+    <script src="src/js/multi-select-tag.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Multi-select Project</h1>
+    </header>
+    
+    <div class="single">
+        <p>Single-select</p>
+        <select name="singletons" id="select-single-1">
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+            <option value="4">Option 4</option>
+            <option value="5">Option 5</option>
+        </select>
+    </div>
+    <div class="multi">
+        <p>Multi-select</p>
+        <select name="countries" id="select-multi-1" multiple>
+            <option value="1">Afghanistan</option>
+            <option value="2">Australia</option>
+            <option value="3">Germany</option>
+            <option value="4">Canada</option>
+            <option value="5">Russia</option>
+            <option value="6">United States</option>
+            <option value="7">United Kingdom</option>
+            <option value="8">China</option>
+            <option value="9">France</option>
+            <option value="10">India</option>
+            <option value="11">Japan</option>
+            <option value="12">South Korea</option>
+            <option value="13">Brazil</option>
+            <option value="14">Mexico</option>
+            <option value="15">South Africa</option>
+            <option value="16">Nigeria</option>
+        </select>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 PhilomathJ Multi-select Project</p>
+    </footer>
+
+    <script>
+        // new MultiSelectTag('select-single-1');
+        new MultiSelectTag('select-multi-1');
+    </script>
+</body>
+</html>
